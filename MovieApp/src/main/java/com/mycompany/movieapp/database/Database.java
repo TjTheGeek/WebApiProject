@@ -27,7 +27,7 @@ public class Database {
     public Database(){
         
         if(init){
-            //Here are are adding Customers to tthe Database and Accoutns to the customers and teh movie to the account
+           //Here are are adding Customers to tthe Database and Accoutns to the customers and teh movie to the account
            //First Movie 
            Movie movie1 = new Movie(movieTB.size()+1,"Red Wedding", "Watch", "Ting's Documentary");
            movieTB.add(movie1);
@@ -41,11 +41,11 @@ public class Database {
            Account account2 = new Account(accountsTB.size()+1, "Child", "Jegan's account", 111111, movieTB2);
            accountsTB2.add(account2);            
             //First Customer
-            Customer customer1 = new Customer("Abraham", "Dublin 2", "Marcus@gmail.com", customerTB.size()+1,accountsTB);
-            customerTB.add(customer1);
-            //Second Customer
-            Customer customer2 = new Customer("Abraham", "Dublin 2", "Marcus@gmail.com", customerTB.size()+1,accountsTB2);
-            customerTB.add(customer2);         
+           Customer customer1 = new Customer("Abraham", "Dublin 2", "Marcus@gmail.com", customerTB.size()+1,accountsTB);
+           customerTB.add(customer1);
+           //Second Customer
+           Customer customer2 = new Customer("Abraham", "Dublin 2", "Marcus@gmail.com", customerTB.size()+1,accountsTB2);
+           customerTB.add(customer2);         
         }
         init=false;//this stops the initialization of the db
     }

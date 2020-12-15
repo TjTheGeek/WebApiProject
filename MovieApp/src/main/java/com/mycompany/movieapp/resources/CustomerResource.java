@@ -30,7 +30,7 @@ public class CustomerResource {
    private CustomerService customerService = new CustomerService();
    
     @GET//gets all customers       
-    public List<Customer> getCustomers() {
+    public List<Customer> getAllCustomers() {
         return customerService.getAllCustomers();
     }
     
@@ -52,25 +52,22 @@ public class CustomerResource {
         id = id -1;
         customerService.removeCustomer(id);
     }
+    
     @PUT
     @Path("/{customerId}")
     public Customer updateCustomer(@PathParam("customerId") int id, Customer customer) {
         return customerService.updateCustomerDetails(id, customer);
     }
     
+    
     @Path("/{customerId}/accounts/")
     public AccountResource getCustomerAccounts() {
         return new AccountResource();
     }
     
-      @Path("/{customerId}/accounts/{accountId}/movies/")
+    @Path("/{customerId}/accounts/{accountId}/movies/")
     public MovieResource getCustomerAccountMovies() {
         return new MovieResource();
     }
-
-    
-   
-    
-    
     
 }

@@ -29,7 +29,7 @@ public class AccountResource {
     private AccountService accountService = new AccountService();
      
     @GET
-    public List<Account> getAccounts(@PathParam("customerId") int id) {//getrs all the accounts under than customer
+    public List<Account> getAllAccounts(@PathParam("customerId") int id) {//getrs all the accounts under than customer
         id = id - 1;
         return accountService.getAllAccounts(id);
     }
@@ -67,14 +67,14 @@ public class AccountResource {
         accountService.removeAccount(id, accountId);
     
      }
-     
-     @PUT
+
+    @PUT
     @Path("/{accountId}")
     public Account updateAccount(@PathParam("customerId") int id, @PathParam("accountId") int accountId, Account account) {
         id = id - 1;
         return accountService.updateAccountDetails(id, accountId, account);
     }
-    
+
     
     
     

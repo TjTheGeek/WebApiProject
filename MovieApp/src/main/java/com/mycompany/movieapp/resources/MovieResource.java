@@ -28,14 +28,14 @@ public class MovieResource {
 
      private MovieService MovieService=new MovieService();
     
-     @GET
+    @GET
     public List<Movie> getAllMovies(@PathParam("customerId") int customerId, @PathParam("accountId") int accountId) {
         customerId = customerId--;
         accountId=accountId-1;
         return MovieService.getAllMovies(customerId, accountId);
     }
     
-    @GET//geta specific movie
+    @GET//get a specific movie
     @Path("/{movieId}")
     public Movie getMovie(@PathParam("customerId") int customerId, @PathParam("accountId") int accountId, @PathParam("movieId") int movieId) {
         accountId = accountId-1;
@@ -50,9 +50,9 @@ public class MovieResource {
       return  MovieService.addMovie(movie, accountId, customerId);
     }
 
-     @DELETE
+    @DELETE
     @Path("/{movieId}")
-    public void removeTransaction(@PathParam("customerId") int customerId,@PathParam("accountId") int accountId, @PathParam("movieId") int mId){
+    public void removeMovie(@PathParam("customerId") int customerId,@PathParam("accountId") int accountId, @PathParam("movieId") int mId){
         mId = mId--;
         accountId =accountId--;
         customerId = customerId - 1;
