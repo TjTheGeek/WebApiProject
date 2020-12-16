@@ -30,10 +30,10 @@ public class MovieService {
     }    
     
     
-    public Movie transferMovie(int customerId,int transferAccId, Movie movie){
+    public Movie transferMovie(int customerId,int transferId, Movie movie){
         List accounts =db.getCustomerAccounts(customerId);//gets all the account under this customer
         db.removeMovie(customerId, findAccountId(movie, customerId), movie);
-        db.addMovie(transferAccId, customerId, movie);
+        db.addMovie(transferId, customerId, movie);
         
         
  return movie;
