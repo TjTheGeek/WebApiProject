@@ -48,9 +48,10 @@ public class CustomerResource {
     
     @DELETE
     @Path("/{customerId}")
-    public void removeCustomer(@PathParam("customerId") int id) {
-        id = id -1;
-        customerService.removeCustomer(id);
+    public String removeCustomer(@PathParam("customerId") int id) {
+    
+        customerService.removeCustomer(id-1);
+        return "The Customer was Deleted";
     }
     @PUT
     @Path("/{customerId}")
