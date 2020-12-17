@@ -27,8 +27,9 @@ import javax.ws.rs.core.MediaType;
 public class MovieResource {
     private MovieService MovieService=new MovieService();
     @GET
-    public List<Movie> getAllMovies(@PathParam("customerId") 
-            int customerId, @PathParam("accountId") int accountId) {
+    public List<Movie> getAllMovies(@PathParam("customerId") int customerId, @PathParam("accountId") int accountId) {
+        accountId = accountId-1; 
+        customerId = customerId-1;
         return MovieService.getAllMovies(customerId, accountId);
     }
     @GET//geta specific movie
@@ -58,20 +59,19 @@ public class MovieResource {
     }
     @POST
     @Path("/{movieId}/{transAccId}")
-    public String transferMovie(@PathParam("customerId")int customerId ,
-            @PathParam("accountId")int custAccId ,
-            @PathParam("transAccId")int transAccId ,
-            @PathParam("movieId") int movieId){
+    public String transferMovie(@PathParam("customerId")int customerId ,@PathParam("accountId")int custAccId , @PathParam("transAccId")int transAccId ,@PathParam("movieId") int movieId){
     int customerId1,custAccId1,transAccId1,movieId1;
-    customerId1=customerId-1; custAccId1=custAccId-1;
-    transAccId1=transAccId-1; movieId1=movieId-1;
+    customerId1=customerId-1;
+
+    custAccId1=custAccId-1;
+    transAccId1=transAccId-1;
+    movieId1=movieId-1;
      Movie movie= MovieService.getMovie(customerId1, custAccId1, movieId1);//getting the movie with its id
      Movie  movie2Transfer=movie;
      MovieService.removeMovie(movie, custAccId1, customerId1);//removing teh move from teh current holder of that movie
-     MovieService.addMovie(movie2Transfer,transAccId1, custAccId1);
+     MovieService.addMovie(movie2Transfer,transAccId1, customerId1);
      AccountResource acc=new AccountResource();
-     return "The movie " +movie2Transfer.getMovieName()+"was transferred to Account nikename "+acc.getAccountNickname(custAccId1, transAccId1)
-             +"with Acc no"+(transAccId+1);
+     return "The movie " +movie2Transfer.getMovieName()+"was transferred to Account nikename "+acc.getAccountNickname(custAccId1, transAccId1)+"with Acc no"+(transAccId+1);
      }    
 }
 
