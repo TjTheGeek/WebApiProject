@@ -29,16 +29,16 @@ public class Database {
         if(init){
             //Here are are adding Customers to tthe Database and Accoutns to the customers and teh movie to the account
            //First Movie 
-           Movie movie1 = new Movie(movieTB.size()+1,"Red Wedding", "Watch", "Ting's Documentary");
+           Movie movie1 = new Movie(1,"Red Wedding", "Watch", "Ting's Documentary");
            movieTB.add(movie1);
            //Second Movie
-           Movie movie2 = new Movie(movieTB.size()+1,"Blue Wedding", "Recommended", "TJ's Documentary");
+           Movie movie2 = new Movie(1,"Blue Wedding", "Recommended", "TJ's Documentary");
            movieTB2.add(movie2);
             //First Accounts for customer 
-           Account account1 = new Account(accountsTB.size()+1, "Adult", "Mum's account", 123456, movieTB);
+           Account account1 = new Account(1, "Adult", "Mum's account", 123456, movieTB);
            accountsTB.add(account1);
             //Second Accounts for customer 
-           Account account2 = new Account(accountsTB.size()+1, "Child", "Jegan's account", 111111, movieTB2);
+           Account account2 = new Account(2, "Child", "Jegan's account", 111111, movieTB2);
            accountsTB2.add(account2);            
             //First Customer
             Customer customer1 = new Customer("Abraham", "Dublin 2", "Marcus@gmail.com", customerTB.size()+1,accountsTB);

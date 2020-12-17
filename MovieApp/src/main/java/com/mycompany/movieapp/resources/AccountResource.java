@@ -38,7 +38,7 @@ public class AccountResource {
     @Path("/{accountId}")//gets a specif account under that customer
     public Account getAccount(@PathParam("customerId") int id, @PathParam("accountId") int accountId) {
         id= id-1;
-        accountId = accountId - 1;
+        accountId = accountId++;
         Account custAcc = accountService.getAccount(id, accountId);
         return custAcc;
     }

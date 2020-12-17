@@ -29,38 +29,52 @@ public class MovieResource {
      private MovieService MovieService=new MovieService();
     
      @GET
-    public List<Movie> getAllMovies(@PathParam("customerId") int customerId, @PathParam("accountId") int accountId) {
-  
+     public List<Movie> getAllMovies(@PathParam("customerId") int customerId, @PathParam("accountId") int accountId) {
+        customerId = customerId-1;
+        accountId=accountId-1;
+
         return MovieService.getAllMovies(customerId, accountId);
     }
     
     @GET//geta specific movie
     @Path("/{movieId}")
     public Movie getMovie(@PathParam("customerId") int customerId, @PathParam("accountId") int accountId, @PathParam("movieId") int movieId) {
- 
+        customerId = customerId--;
+        accountId=accountId-1;
+        movieId=movieId-1;
+        
         return MovieService.getMovie(customerId, accountId, movieId);
     }
     
     @POST
     public Movie addMovie(@PathParam("customerId") int customerId,@PathParam("accountId") int accountId,Movie movie){
-       accountId = accountId-1;
+        customerId = customerId--;
+        accountId=accountId--;
       return  MovieService.addMovie(movie, accountId, customerId);
     }
 
      @DELETE
     @Path("/{MovieID}")
-    public String removeMovie(@PathParam("customerId") int CustomerID, @PathParam("accountId") int AccountID, @PathParam("MovieID") int movieid) {
-        Movie movie = MovieService.getMovie(CustomerID, AccountID, movieid);
+    public String removeMovie(@PathParam("customerId") int customerId, @PathParam("accountId") int accountId, @PathParam("MovieID") int movieid) {
+         customerId = customerId--;
+        accountId=accountId--;
+       
+        Movie movie = MovieService.getMovie(customerId, accountId, movieid);
         Movie deletedMovie = movie;
-        MovieService.removeMovie(movie, AccountID, CustomerID);
+        
+        
+        MovieService.removeMovie(movie, accountId, customerId);
 
-        return "The"  + deletedMovie.getMovieName()+ "Was Removed from: User with Customer Id"+CustomerID+1;
+        return "The"  + deletedMovie.getMovieName()+ "Was Removed from: User with Customer Id"+customerId+1;
     }
     
     @POST
      @Path("/{movieId}/{transAccId}")
      public String transferMovie(@PathParam("customerId")int customerId ,@PathParam("accountId")int custAccId ,@PathParam("transAccId")int transAccId ,@PathParam("movieId") int movieId){
-     Movie movie= MovieService.getMovie(customerId, custAccId, movieId);//getting the movie with its id
+     customerId = customerId--;
+        custAccId=custAccId--;
+       
+       Movie movie= MovieService.getMovie(customerId, custAccId, movieId);//getting the movie with its id
      Movie  movie2Transfer=movie;
      MovieService.removeMovie(movie, custAccId, customerId);//removing teh move from teh current holder of that movie
      MovieService.addMovie(movie2Transfer,transAccId, custAccId);

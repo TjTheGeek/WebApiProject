@@ -31,6 +31,7 @@ public class CustomerResource {
    
     @GET//gets all customers       
     public List<Customer> getCustomers() {
+        
         return customerService.getAllCustomers();
     }
     
