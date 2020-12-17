@@ -30,17 +30,14 @@ public class MovieResource {
     
      @GET
     public List<Movie> getAllMovies(@PathParam("customerId") int customerId, @PathParam("accountId") int accountId) {
-        customerId = customerId--;
-        accountId=accountId-1;
+  
         return MovieService.getAllMovies(customerId, accountId);
     }
     
     @GET//geta specific movie
     @Path("/{movieId}")
     public Movie getMovie(@PathParam("customerId") int customerId, @PathParam("accountId") int accountId, @PathParam("movieId") int movieId) {
-        accountId = accountId-1;
-        customerId = customerId--;
-        movieId = movieId --;
+ 
         return MovieService.getMovie(customerId, accountId, movieId);
     }
     
@@ -71,4 +68,5 @@ public class MovieResource {
   
      return "the movie transferred was: " +movie2Transfer+"\n to: "+transAccId;
     
+}
 }
