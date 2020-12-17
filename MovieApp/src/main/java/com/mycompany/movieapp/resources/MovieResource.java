@@ -60,7 +60,16 @@ public class MovieResource {
         MovieService.removeMovie(movie, accountId, customerId);
     }
     
+    @POST
+     @Path("/{movieId}/{transAccId}")
+     public String transferMovie(@PathParam("customerId")int customerId ,@PathParam("accountId")int custAccId ,@PathParam("transAccId")int transAccId ,@PathParam("movieId") int movieId){
+     Movie movie= MovieService.getMovie(customerId, custAccId, movieId);//getting the movie with its id
+     Movie  movie2Transfer=movie;
+     MovieService.removeMovie(movie, custAccId, customerId);//removing teh move from teh current holder of that movie
+     MovieService.addMovie(movie2Transfer,transAccId, custAccId);
     
+  
+     return "the movie transferred was: " +movie2Transfer+"\n to: "+transAccId;
     
     
     
