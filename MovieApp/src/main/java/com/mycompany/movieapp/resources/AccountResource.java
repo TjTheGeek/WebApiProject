@@ -29,15 +29,11 @@ public class AccountResource {
     private AccountService accountService = new AccountService();
      
     @GET
-<<<<<<< Updated upstream
+
     public List<Account> getAccounts(@PathParam("customerId") int id) {//getrs all the accounts under than customer
         id = id - 1;
         return accountService.getAllAccounts(id);
-=======
-    public List<Account> getAllAccounts(@PathParam("customerId") int id) {//getrs all the accounts under than customer
-        int id1 = id - 1;
-        return accountService.getAllAccounts(id1);
->>>>>>> Stashed changes
+
     }
     
     @GET

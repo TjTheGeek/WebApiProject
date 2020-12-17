@@ -34,11 +34,8 @@ public class Database {
            Movie movie4 = new Movie(movieTB.size()+1,"Yellow Wedding", "Watch", "Marcis's Documentary");
            movieTB.add(movie4);
            //Second Movie
-<<<<<<< Updated upstream
            Movie movie2 = new Movie(movieTB.size()+1,"Blue Wedding", "Recommended", "TJ's Documentary");
-=======
-           Movie movie2 = new Movie(movieTB2.size()+1,"Blue Wedding", "Recommended", "TJ's Documentary");
->>>>>>> Stashed changes
+           
            movieTB2.add(movie2);
            Movie movie3 = new Movie(movieTB2.size()+1,"green Wedding", "Recommended", "Jegans's Documentary");
            movieTB2.add(movie3);
