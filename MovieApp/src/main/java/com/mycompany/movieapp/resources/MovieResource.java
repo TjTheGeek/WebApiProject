@@ -51,13 +51,13 @@ public class MovieResource {
     }
 
      @DELETE
-    @Path("/{movieId}")
-    public void removeTransaction(@PathParam("customerId") int customerId,@PathParam("accountId") int accountId, @PathParam("movieId") int mId){
-        mId = mId--;
-        accountId =accountId--;
-        customerId = customerId - 1;
-        Movie movie=MovieService.getMovie(customerId, accountId, mId);
-        MovieService.removeMovie(movie, accountId, customerId);
+    @Path("/{MovieID}")
+    public String removeMovie(@PathParam("customerId") int CustomerID, @PathParam("accountId") int AccountID, @PathParam("MovieID") int movieid) {
+        Movie movie = MovieService.getMovie(CustomerID, AccountID, movieid);
+        Movie deletedMovie = movie;
+        MovieService.removeMovie(movie, AccountID, CustomerID);
+
+        return "The"  + deletedMovie.getMovieName()+ "Was Removed from: User with Customer Id"+CustomerID+1;
     }
     
     @POST
@@ -70,8 +70,5 @@ public class MovieResource {
     
   
      return "the movie transferred was: " +movie2Transfer+"\n to: "+transAccId;
-    
-    
-    
     
 }
