@@ -41,7 +41,7 @@ public class MovieResource {
     public Movie getMovie(@PathParam("customerId") int customerId, @PathParam("accountId") int accountId, @PathParam("movieId") int movieId) {
         customerId = customerId--;
         accountId=accountId-1;
-        movieId=movieId-1;
+       
         
         return MovieService.getMovie(customerId, accountId, movieId);
     }

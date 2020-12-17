@@ -38,13 +38,13 @@ public class Database {
            Account account1 = new Account(1, "Adult", "Mum's account", 123456, movieTB);
            accountsTB.add(account1);
             //Second Accounts for customer 
-           Account account2 = new Account(2, "Child", "Jegan's account", 111111, movieTB2);
+           Account account2 = new Account(1, "Child", "Jegan's account", 111111, movieTB2);
            accountsTB2.add(account2);            
             //First Customer
-            Customer customer1 = new Customer("Abraham", "Dublin 2", "Marcus@gmail.com", customerTB.size()+1,accountsTB);
+            Customer customer1 = new Customer("Abraham", "Dublin 2", "Marcus@gmail.com", 1,accountsTB);
             customerTB.add(customer1);
             //Second Customer
-            Customer customer2 = new Customer("Abraham", "Dublin 2", "Marcus@gmail.com", customerTB.size()+1,accountsTB2);
+            Customer customer2 = new Customer("Abraham", "Dublin 2", "Marcus@gmail.com",2,accountsTB2);
             customerTB.add(customer2);         
         }
         init=false;//this stops the initialization of the db
