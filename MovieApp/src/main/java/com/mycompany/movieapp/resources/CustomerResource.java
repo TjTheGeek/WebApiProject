@@ -30,7 +30,12 @@ public class CustomerResource {
    private CustomerService customerService = new CustomerService();
    
     @GET//gets all customers       
+<<<<<<< HEAD
     public List<Customer> getAllCustomers() {
+=======
+    public List<Customer> getCustomers() {
+        
+>>>>>>> 1dd75c7aa8e3213ec33fc671ec1baa7680f88829
         return customerService.getAllCustomers();
     }
     
