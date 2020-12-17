@@ -21,24 +21,29 @@
             <version>8.0.1</version>
             <scope>provided</scope>
         </dependency>
-        
-        
         <dependency>
             <groupId>org.glassfish.jersey.containers</groupId>
             <artifactId>jersey-container-servlet</artifactId>
             <version>2.32</version>
-            
         </dependency>
         <dependency>
-
-            <groupId>org.glassfish.jersey.inject</groupId>
-
-            <artifactId>jersey-hk2</artifactId>
-
+            <groupId>org.glassfish.jersey.media</groupId>
+            <artifactId>jersey-media-json-jackson</artifactId>
             <version>2.32</version>
-
-</dependency>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.jersey.media</groupId>
+            <artifactId>jersey-media-moxy</artifactId>
+            <version>2.32</version>
+        </dependency>
+        
+         <dependency>
+            <groupId>org.glassfish.jersey.inject</groupId>
+            <artifactId>jersey-hk2</artifactId>
+            <version>2.32</version>
+        </dependency>
     </dependencies>
+
 
     <build>
         <plugins>
@@ -57,7 +62,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
-                <version>2.3</version>
+                <version>2.6</version>
                 <configuration>
                     <failOnMissingWebXml>false</failOnMissingWebXml>
                 </configuration>
@@ -87,20 +92,18 @@
                     </execution>
                 </executions>
             </plugin>
-            
             <plugin>
                 <groupId>org.eclipse.jetty</groupId>
                 <artifactId>jetty-maven-plugin</artifactId>
                 <version>9.4.34.v20201102</version>
                 <configuration>
                     <httpConnector>
-                        <host> 127.0.0.1 </host>
-                        <port> 49000 </port>
+                        <host>127.0.0.1</host>
+                        <port>49000</port>
                     </httpConnector>
                     <scanIntervalSeconds>3</scanIntervalSeconds>
                     <webAppConfig>
-                        <!--defaultsDescriptor>src/test/resources/jetty-maven-plugin-webdefault.xml<
-                        /defaultsDescriptor -->
+                        <!--defaultsDescriptor></defaultsDescriptor-->
                     </webAppConfig>
                 </configuration>
             </plugin>
@@ -108,6 +111,3 @@
     </build>
 
 </project>
-    
-    
-  

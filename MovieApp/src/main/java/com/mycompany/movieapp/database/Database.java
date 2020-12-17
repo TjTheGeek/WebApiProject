@@ -32,7 +32,7 @@ public class Database {
            Movie movie1 = new Movie(movieTB.size()+1,"Red Wedding", "Watch", "Ting's Documentary");
            movieTB.add(movie1);
            //Second Movie
-           Movie movie2 = new Movie(movieTB.size()+1,"Blue Wedding", "Recommended", "TJ's Documentary");
+           Movie movie2 = new Movie(movieTB2.size(),"Blue Wedding", "Recommended", "TJ's Documentary");
            movieTB2.add(movie2);
             //First Accounts for customer 
            Account account1 = new Account(accountsTB.size()+1, "Adult", "Mum's account", 123456, movieTB);

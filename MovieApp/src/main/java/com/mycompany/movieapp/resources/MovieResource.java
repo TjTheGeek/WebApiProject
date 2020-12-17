@@ -5,7 +5,6 @@
  */
 package com.mycompany.movieapp.resources;
 
-import com.mycompany.movieapp.database.Database;
 import com.mycompany.movieapp.models.Movie;
 import com.mycompany.movieapp.services.MovieService;
 import java.util.List;
