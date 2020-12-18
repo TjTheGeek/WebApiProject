@@ -16,12 +16,12 @@ import java.util.List;
  * @author Jegan
  */
 public class Database {
-    public static List<Account> accountsTB = new ArrayList<Account>();
-    public static List<Account> accountsTB2 = new ArrayList<Account>();
-    public static List<Movie> movieTB = new ArrayList<Movie>();
-    public static List<Movie> movieTB2 = new ArrayList<Movie>();
-    public static List<Customer> customerTB = new ArrayList<Customer>();
-    public static boolean init = true;
+    private static List<Account> accountsTB = new ArrayList<Account>();
+    private static List<Account> accountsTB2 = new ArrayList<Account>();
+    private static List<Movie> movieTB = new ArrayList<Movie>();
+    private static List<Movie> movieTB2 = new ArrayList<Movie>();
+    private static List<Customer> customerTB = new ArrayList<Customer>();
+    private static boolean init = true;
     
     
     public Database(){

@@ -15,8 +15,8 @@ import java.util.List;
  * @author Marcus
  */
 public class MovieService {
-    Database db = new Database();
-    CustomerService cust = new CustomerService();
+    private static Database db = new Database();
+    protected CustomerService cust = new CustomerService();
    
     public List<Movie> getAllMovies(int customerId, int accountId) {
         return db.getCustomers().get(customerId)
