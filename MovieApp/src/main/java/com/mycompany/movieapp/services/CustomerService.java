@@ -14,7 +14,7 @@ import java.util.List;
  * @author TJ
  */
 public class CustomerService {
-    Database db = new Database();    
+    private static Database db = new Database();    
     
     public List<Customer> getAllCustomers() {
         return db.getCustomers();
@@ -29,7 +29,7 @@ public class CustomerService {
 
         return customer;
     }
-     public void removeCustomer(int id) {
+    public void removeCustomer(int id) {
         db.getCustomers().remove(id);
         for(int i = 0; i<db.getCustomers().size(); i++){
             db.getCustomers().get(i).setCustomerID(i+1);

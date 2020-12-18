@@ -30,42 +30,42 @@ public class CustomerResource {
    private CustomerService customerService = new CustomerService();
    
     @GET//gets all customers       
-    public List<Customer> getCustomers() {
+    protected List<Customer> getCustomers() {
         return customerService.getAllCustomers();
     }
     
     @GET//gets all customer with id
     @Path("/{customerId}")
-    public Customer getCustomer(@PathParam("customerId") int id) {
+    protected Customer getCustomer(@PathParam("customerId") int id) {
         Customer customer =  customerService.getCustomerById(id);
         return customer;
     }
     
     @POST
-     public Customer addCustomer(Customer customer) {
+    protected Customer addCustomer(Customer customer) {
         return customerService.addCustomer(customer);
     }
     
     @DELETE
     @Path("/{customerId}")
-    public String removeCustomer(@PathParam("customerId") int id) {
+    protected String removeCustomer(@PathParam("customerId") int id) {
     
         customerService.removeCustomer(id-1);
         return "The Customer was Deleted";
     }
     @PUT
     @Path("/{customerId}")
-    public Customer updateCustomer(@PathParam("customerId") int id, Customer customer) {
+    protected Customer updateCustomer(@PathParam("customerId") int id, Customer customer) {
         return customerService.updateCustomerDetails(id, customer);
     }
     
     @Path("/{customerId}/accounts/")
-    public AccountResource getCustomerAccounts() {
+    protected AccountResource getCustomerAccounts() {
         return new AccountResource();
     }
     
       @Path("/{customerId}/accounts/{accountId}/movies/")
-    public MovieResource getCustomerAccountMovies() {
+    protected MovieResource getCustomerAccountMovies() {
         return new MovieResource();
     }
 

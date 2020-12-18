@@ -27,14 +27,14 @@ import javax.ws.rs.core.MediaType;
 public class MovieResource {
     private MovieService MovieService=new MovieService();
     @GET
-    public List<Movie> getAllMovies(@PathParam("customerId") 
+    protected List<Movie> getAllMovies(@PathParam("customerId") 
             int customerId, @PathParam("accountId") int accountId) {
         accountId = accountId-1; customerId = customerId-1;
         return MovieService.getAllMovies(customerId, accountId);
     }
     @GET//geta specific movie
     @Path("/{movieId}")
-    public Movie getMovie(@PathParam("customerId") 
+    protected Movie getMovie(@PathParam("customerId") 
             int customerId, @PathParam("accountId") 
             int accountId, @PathParam("movieId") int movieId){
         accountId = accountId-1; customerId = customerId-1;
@@ -42,7 +42,7 @@ public class MovieResource {
         return MovieService.getMovie(customerId, accountId, movieId);
     }
     @POST
-    public String addMovie(@PathParam("customerId") int customerId,
+    protected String addMovie(@PathParam("customerId") int customerId,
             @PathParam("accountId") int accountId,Movie movie){
         
         accountId = accountId-1; customerId = customerId-1;
@@ -52,7 +52,7 @@ public class MovieResource {
     }
     @DELETE
     @Path("/{MovieID}")
-    public String removeMovie(@PathParam("customerId") int customerId, @PathParam("accountId") int accountId, @PathParam("MovieID") int movieid) {
+    protected String removeMovie(@PathParam("customerId") int customerId, @PathParam("accountId") int accountId, @PathParam("MovieID") int movieid) {
           accountId = accountId-1; 
           customerId = customerId-1;
           movieid=movieid-1;
@@ -64,7 +64,7 @@ public class MovieResource {
     }    
     @POST
     @Path("/{movieId}/{transAccId}")
-    public String transferMovie(@PathParam("customerId")int customerId ,
+    protected String transferMovie(@PathParam("customerId")int customerId ,
             @PathParam("accountId")int custAccId ,
             @PathParam("transAccId")int transAccId ,
             @PathParam("movieId") int movieId){

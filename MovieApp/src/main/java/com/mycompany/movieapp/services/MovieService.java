@@ -6,7 +6,6 @@
 package com.mycompany.movieapp.services;
 
 import com.mycompany.movieapp.database.Database;
-import com.mycompany.movieapp.models.Account;
 import com.mycompany.movieapp.models.Movie;
 import java.util.List;
 
@@ -15,7 +14,7 @@ import java.util.List;
  * @author Marcus
  */
 public class MovieService {
-    Database db = new Database();
+    private static Database db = new Database();
     CustomerService cust = new CustomerService();
    
     public List<Movie> getAllMovies(int customerId, int accountId) {
@@ -29,7 +28,6 @@ public class MovieService {
     }    
     
     public Movie transferMovie(int customerId,int transferId, Movie movie){
-        List accounts =db.getCustomerAccounts(customerId);//gets all the account under this customer
         db.removeMovie(customerId, findAccountId
       (movie, customerId), movie);
         db.addMovie(transferId, customerId, movie);
