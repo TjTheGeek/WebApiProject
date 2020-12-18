@@ -285,7 +285,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:49000/api/customers/2/accounts/1/movies/1/2",
+							"raw": "http://localhost:49000/api/customers/2/accounts/1/movies/2/2",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -298,7 +298,7 @@
 								"accounts",
 								"1",
 								"movies",
-								"1",
+								"2",
 								"2"
 							]
 						},
