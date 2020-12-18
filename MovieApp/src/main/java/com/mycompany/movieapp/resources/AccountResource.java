@@ -75,13 +75,13 @@ public class AccountResource {
      @DELETE
      @Path("/{accountId}")
     public String removeAccount(@PathParam("customerId") int id, @PathParam("accountId") int accountId) {
-        int accountId1 = accountId - 1;
-        int id1 = id - 1;
-        accountService.removeAccount(id1, accountId1);
+        accountId = accountId --;
+        id =id-1;
+        accountService.removeAccount(id, accountId);
         return "The user was Deleted";
      }
      
-     @PUT
+    @PUT
     @Path("/{accountId}")
     public Account updateAccount(@PathParam("customerId") int id, @PathParam("accountId") int accountId, Account account) {
        int id1;

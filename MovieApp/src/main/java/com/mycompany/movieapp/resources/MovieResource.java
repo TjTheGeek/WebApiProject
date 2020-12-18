@@ -52,15 +52,15 @@ public class MovieResource {
     }
     @DELETE
     @Path("/{MovieID}")
-    public String removeMovie(@PathParam("customerId") int customerId, 
-            @PathParam("accountId") int accountId, @PathParam("MovieID") int movieid) {
+    public String removeMovie(@PathParam("customerId") int customerId, @PathParam("accountId") int accountId, @PathParam("MovieID") int movieid) {
           accountId = accountId-1; 
           customerId = customerId-1;
+          movieid=movieid-1;
         Movie movie = MovieService.getMovie(customerId, accountId, movieid);
         Movie deletedMovie = movie;
         MovieService.removeMovie(movie, accountId, customerId);
         return "The"  + deletedMovie.getMovieName()+ 
-            "Was Removed from: User with Customer Id"+customerId;
+            "Was Removed from: User with Customer Id "+customerId;
     }
     
     @POST
