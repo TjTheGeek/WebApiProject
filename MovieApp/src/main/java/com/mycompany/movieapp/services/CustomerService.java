@@ -36,7 +36,8 @@ public class CustomerService {
         }
     }
 
-    public Customer updateCustomerDetails(int id, Customer customer) {
+    public Customer updateCustomerDetails
+        (int id, Customer customer) {
         customer.setCustomerID(id);
         db.getCustomers().set(id - 1, customer);
         return customer;
