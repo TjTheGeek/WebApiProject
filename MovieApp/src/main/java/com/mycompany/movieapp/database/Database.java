@@ -85,7 +85,7 @@ public class Database {
     public List<Movie> getCustomerMovie(int customerNo, int accountNo) {
         return customerTB.get(customerNo).getAccounts().get(accountNo).getMovies();
     }    
- public int getMovieNextId(int customerNo, int accountNo){
+ public int getMovieListLength(int customerNo, int accountNo){
      return getCustomerMovie(customerNo, accountNo).size()+1;
  }
 }
