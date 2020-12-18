@@ -59,10 +59,9 @@ public class MovieResource {
         Movie movie = MovieService.getMovie(customerId, accountId, movieid);
         Movie deletedMovie = movie;
         MovieService.removeMovie(movie, accountId, customerId);
-        return "The"  + deletedMovie.getMovieName()+ 
-            "Was Removed from: User with Customer Id "+(customerId+1);
-    }
-    
+        return "The "  + deletedMovie.getMovieName()+ " was deleted";
+         
+    }    
     @POST
     @Path("/{movieId}/{transAccId}")
     public String transferMovie(@PathParam("customerId")int customerId ,
@@ -77,7 +76,7 @@ public class MovieResource {
      MovieService.removeMovie(movie, custAccId1, customerId1);//removing teh move from teh current holder of that movie
      MovieService.addMovie(movie2Transfer,transAccId1, custAccId1);
      AccountResource acc=new AccountResource();
-     return "The movie " +movie2Transfer.getMovieName()+"was transferred to Account no "+transAccId;
+     return "The movie " +movie2Transfer.getMovieName()+" was transferred to Account no "+transAccId;
      }    
 }
 

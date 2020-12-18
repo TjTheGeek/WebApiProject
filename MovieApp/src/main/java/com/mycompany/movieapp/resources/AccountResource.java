@@ -61,7 +61,7 @@ public class AccountResource {
     public String addAccount(@PathParam("customerId")int custId,Account account){
       accountService.addAccount(custId, account);
       return "Account Added";
-  
+      
     }
     
     
