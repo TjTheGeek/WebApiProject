@@ -27,9 +27,12 @@ public class AccountService {
     
     //Adding new accounts
     public Account addAccount(int customerId, Account account) {
-        int accountId = db.getCustomerAccounts(customerId).size() + 1;
-        account.setAccId(accountId);
-        db.getCustomerAccounts(customerId-1).add(account);
+         db.getCustomerAccounts(customerId-1).add(account);//add the account
+         int accountId = db.getCustomerAccounts(customerId).size() + 1;
+        for(int i=0;i<db.getCustomerAccounts(customerId).size();i++){
+             db.getCustomerAccounts(customerId).get(i).setAccId(i+1);//indexes everything 
+        }
+       
 
         return db.getCustomerAccounts(customerId-1).get(accountId - 1 );
     }    
