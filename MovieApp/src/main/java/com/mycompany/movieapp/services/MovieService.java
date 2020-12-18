@@ -31,7 +31,7 @@ public class MovieService {
     public Movie transferMovie(int customerId,int transferId, Movie movie){
         List accounts =db.getCustomerAccounts(customerId);//gets all the account under this customer
         db.removeMovie(customerId, findAccountId
-        (movie, customerId), movie);
+      (movie, customerId), movie);
         db.addMovie(transferId, customerId, movie);
         
     return movie; 
@@ -49,14 +49,20 @@ public class MovieService {
     }
     
     public Movie addMovie( Movie movie, int accountId, int custId){
-        movie.setMovieId(db.getMovieListLength(custId, accountId));
-       db.addMovie(custId, accountId, movie);
+     
+        db.addMovie(custId, accountId, movie);//add the movie
+        for(int i=0;i<db.getMovieNextId(custId, accountId)-1;i++){
+            getMovie(custId, accountId, i).setMovieId(i+1);//indexes everything 
+        }
      return movie;
     
     }
    
     public void removeMovie( Movie movie, int accountId, int custId){
         db.removeMovie(custId, accountId, movie);
+        for(int i=0;i<db.getMovieNextId(custId, accountId)-1;i++){
+            getMovie(custId, accountId, i).setMovieId(i+1);//indexes everything 
+        }
     }
 }
 
