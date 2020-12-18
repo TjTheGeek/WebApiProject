@@ -10,7 +10,7 @@ import java.util.List;
 /**
  *
  * @author Ting Hao
- */
+ */ 
 public class Account {
     private int accId;
     private String accType;

@@ -58,10 +58,10 @@ public class AccountResource {
     }
     
     @POST
-    public Account addAccount(@PathParam("customerId")int custId,Account account){
-      
-         return  accountService.addAccount(custId, account);
-   
+    public String addAccount(@PathParam("customerId")int custId,Account account){
+      accountService.addAccount(custId, account);
+      return "Account Added";
+  
     }
     
     
@@ -75,9 +75,9 @@ public class AccountResource {
      @DELETE
      @Path("/{accountId}")
     public String removeAccount(@PathParam("customerId") int id, @PathParam("accountId") int accountId) {
-        accountId = accountId --;
+       // accountId = accountId --;
         id =id-1;
-        accountService.removeAccount(id, accountId);
+        accountService.removeAccount(id, accountId-1);
         return "The user was Deleted";
      }
      

@@ -34,7 +34,7 @@ public class Database {
            Movie movie4 = new Movie(movieTB.size()+1,"Yellow Wedding", "Watch", "Marcis's Documentary");
            movieTB.add(movie4);
            //Second Movie
-           Movie movie2 = new Movie(movieTB.size()+1,"Blue Wedding", "Recommended", "TJ's Documentary");
+           Movie movie2 = new Movie(movieTB2.size()+1,"Blue Wedding", "Recommended", "TJ's Documentary");
            
            movieTB2.add(movie2);
            Movie movie3 = new Movie(movieTB2.size()+1,"green Wedding", "Recommended", "Jegans's Documentary");
@@ -45,15 +45,15 @@ public class Database {
             Account account3 = new Account(accountsTB.size()+1, "Child", "Step son", 12361231, movieTB2);
            accountsTB.add(account3);
             //Second Accounts for customer 
-           Account account2 = new Account(accountsTB2.size()+1, "Child", "Jegan's account", 111111, movieTB2);
+           Account account2 = new Account(accountsTB2.size()+1, "Child", "Jegan's account", 111111, movieTB);
            accountsTB2.add(account2);            
-           Account account4 = new Account(accountsTB2.size()+1, "Child", "Dad's account", 112345, movieTB);
+           Account account4 = new Account(accountsTB2.size()+1, "Child", "Dad's account", 112345, movieTB2);
            accountsTB2.add(account4);            
             //First Customer
             Customer customer1 = new Customer("Abraham", "Dublin 2", "Marcus@gmail.com", customerTB.size()+1,accountsTB);
             customerTB.add(customer1);
             //Second Customer
-            Customer customer2 = new Customer("Abraham", "Dublin 2", "Marcus@gmail.com", customerTB.size()+1,accountsTB2);
+            Customer customer2 = new Customer("Lisa", "Afganistan", "yololy@hotmail.com", customerTB.size()+1,accountsTB2);
             customerTB.add(customer2);         
         }
         init=false;//this stops the initialization of the db

@@ -29,9 +29,9 @@ public class AccountService {
     public Account addAccount(int customerId, Account account) {
         int accountId = db.getCustomerAccounts(customerId).size() + 1;
         account.setAccId(accountId);
-        db.getCustomerAccounts(customerId - 1).add(account);
+        db.getCustomerAccounts(customerId-1).add(account);
 
-        return db.getCustomerAccounts(customerId - 1).get(accountId - 1 );
+        return db.getCustomerAccounts(customerId-1).get(accountId - 1 );
     }    
     
     //Removing accounts

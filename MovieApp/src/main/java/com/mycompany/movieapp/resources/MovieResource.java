@@ -60,7 +60,7 @@ public class MovieResource {
         Movie deletedMovie = movie;
         MovieService.removeMovie(movie, accountId, customerId);
         return "The"  + deletedMovie.getMovieName()+ 
-            "Was Removed from: User with Customer Id "+customerId;
+            "Was Removed from: User with Customer Id "+(customerId+1);
     }
     
     @POST
