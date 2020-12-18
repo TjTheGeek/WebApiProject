@@ -14,7 +14,7 @@ import java.util.List;
  * @author TJ
  */
 public class CustomerService {
-    Database db = new Database();    
+    private static Database db = new Database();    
     
     public List<Customer> getAllCustomers() {
         return db.getCustomers();

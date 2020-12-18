@@ -15,7 +15,7 @@ import java.util.List;
  */
 public class AccountService {
     
-        Database db = new Database();
+       private static Database db = new Database();
     // get all the accounts    
     public List<Account> getAllAccounts(int customerId) {
         return db.getCustomerAccounts(customerId);
