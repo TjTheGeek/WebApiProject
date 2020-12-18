@@ -24,7 +24,7 @@ public class CustomerService {
     }
     
     public Customer addCustomer(Customer customer) {
-        customer.setCustomerID(db.getCustomers().size() + 1);
+        customer.setCustomerID(db.getCustomers().size()+1);
         db.getCustomers().add(customer);
 
         return customer;

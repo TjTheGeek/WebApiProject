@@ -11,6 +11,7 @@ import java.util.List;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -55,6 +56,14 @@ public class AccountResource {
         String nickName=accountService.getAccount(custId1, accountId1).getAccNickname();
         return "The nickname for acc "+accountId1+" is "+nickName;
     }
+    
+    @POST
+    public Account addAccount(@PathParam("customerId")int custId,Account account){
+      
+         return  accountService.addAccount(custId, account);
+   
+    }
+    
     
     
      @GET

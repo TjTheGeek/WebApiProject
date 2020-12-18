@@ -27,7 +27,7 @@ public class AccountService {
     
     //Adding new accounts
     public Account addAccount(int customerId, Account account) {
-        int accountId = db.getCustomerAccounts(customerId - 1).size() + 1;
+        int accountId = db.getCustomerAccounts(customerId).size() + 1;
         account.setAccId(accountId);
         db.getCustomerAccounts(customerId - 1).add(account);
 

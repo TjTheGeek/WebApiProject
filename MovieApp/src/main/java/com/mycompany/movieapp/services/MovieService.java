@@ -49,6 +49,7 @@ public class MovieService {
     }
     
     public Movie addMovie( Movie movie, int accountId, int custId){
+        movie.setMovieId(db.getMovieListLength(custId, accountId));
        db.addMovie(custId, accountId, movie);
      return movie;
     

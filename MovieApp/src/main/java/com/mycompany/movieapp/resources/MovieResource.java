@@ -29,6 +29,7 @@ public class MovieResource {
     @GET
     public List<Movie> getAllMovies(@PathParam("customerId") 
             int customerId, @PathParam("accountId") int accountId) {
+        accountId = accountId-1; customerId = customerId-1;
         return MovieService.getAllMovies(customerId, accountId);
     }
     @GET//geta specific movie
@@ -41,21 +42,27 @@ public class MovieResource {
         return MovieService.getMovie(customerId, accountId, movieId);
     }
     @POST
-    public Movie addMovie(@PathParam("customerId") int customerId,
+    public String addMovie(@PathParam("customerId") int customerId,
             @PathParam("accountId") int accountId,Movie movie){
-        accountId = accountId-1;
-        return  MovieService.addMovie(movie, accountId, customerId);
+        
+        accountId = accountId-1; customerId = customerId-1;
+        
+        MovieService.addMovie(movie, accountId,customerId);
+        return  "The Movie was Added";
     }
     @DELETE
     @Path("/{MovieID}")
-    public String removeMovie(@PathParam("customerId") int CustomerID, 
-            @PathParam("accountId") int AccountID, @PathParam("MovieID") int movieid) {
-        Movie movie = MovieService.getMovie(CustomerID, AccountID, movieid);
+    public String removeMovie(@PathParam("customerId") int customerId, 
+            @PathParam("accountId") int accountId, @PathParam("MovieID") int movieid) {
+          accountId = accountId-1; 
+          customerId = customerId-1;
+        Movie movie = MovieService.getMovie(customerId, accountId, movieid);
         Movie deletedMovie = movie;
-        MovieService.removeMovie(movie, AccountID, CustomerID);
+        MovieService.removeMovie(movie, accountId, customerId);
         return "The"  + deletedMovie.getMovieName()+ 
-            "Was Removed from: User with Customer Id"+CustomerID+1;
+            "Was Removed from: User with Customer Id"+customerId;
     }
+    
     @POST
     @Path("/{movieId}/{transAccId}")
     public String transferMovie(@PathParam("customerId")int customerId ,
@@ -70,8 +77,7 @@ public class MovieResource {
      MovieService.removeMovie(movie, custAccId1, customerId1);//removing teh move from teh current holder of that movie
      MovieService.addMovie(movie2Transfer,transAccId1, custAccId1);
      AccountResource acc=new AccountResource();
-     return "The movie " +movie2Transfer.getMovieName()+"was transferred to Account nikename "+acc.getAccountNickname(custAccId1, transAccId1)
-             +"with Acc no"+(transAccId+1);
+     return "The movie " +movie2Transfer.getMovieName()+"was transferred to Account no "+transAccId;
      }    
 }
 
