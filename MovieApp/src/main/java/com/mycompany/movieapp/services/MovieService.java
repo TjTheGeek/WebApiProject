@@ -50,10 +50,9 @@ public class MovieService {
     
     public Movie addMovie( Movie movie, int accountId, int custId){
      
-        db.addMovie(custId, accountId, movie);//add the movie
-        for(int i=0;i<db.getMovieNextId(custId, accountId)-1;i++){
-            getMovie(custId, accountId, i).setMovieId(i+1);//indexes everything 
-        }
+        movie.setMovieId(db.getMovieNextId(custId, accountId));
+       db.addMovie(custId, accountId, movie);
+
      return movie;
     
     }
