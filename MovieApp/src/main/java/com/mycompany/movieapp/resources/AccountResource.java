@@ -32,7 +32,7 @@ public class AccountResource {
     @GET
 
     public List<Account> getAccounts(@PathParam("customerId") int id) {//getrs all the accounts under than customer
-        id = id - 1;
+        id--;
         return accountService.getAllAccounts(id);
 
     }
@@ -41,8 +41,8 @@ public class AccountResource {
     @Path("/{accountId}")//gets a specif account under that customer
     public Account getAccount(@PathParam("customerId") int id, @PathParam("accountId") int accountId) {
         int id1,accountId1;
-        id1= id-1;
-        accountId1 = accountId - 1;
+        id1= id--;
+        accountId1 = accountId--;
         Account custAcc = accountService.getAccount(id1, accountId1);
         return custAcc;
     }
@@ -51,8 +51,8 @@ public class AccountResource {
     @Path("/{accountId}/accNickname")
     public String getAccountNickname(@PathParam("customerId") int custId, @PathParam("accountId") int accountId) {
         int accountId1,custId1;
-        accountId1 = accountId - 1;
-        custId1 = custId - 1;
+        accountId1 = accountId--;
+        custId1 = custId--;
         String nickName=accountService.getAccount(custId1, accountId1).getAccNickname();
         return "The nickname for acc "+accountId1+" is "+nickName;
     }
@@ -75,9 +75,8 @@ public class AccountResource {
      @DELETE
      @Path("/{accountId}")
     public String removeAccount(@PathParam("customerId") int id, @PathParam("accountId") int accountId) {
-        accountId = accountId --;
-        id =id-1;
-        accountService.removeAccount(id, accountId);
+       
+        accountService.removeAccount(id--, accountId --);
         return "The user was Deleted";
      }
      
@@ -85,7 +84,7 @@ public class AccountResource {
     @Path("/{accountId}")
     public Account updateAccount(@PathParam("customerId") int id, @PathParam("accountId") int accountId, Account account) {
        int id1;
-        id1= id - 1;
+        id1= id --;
         return accountService.updateAccountDetails(id, accountId, account);
     }
     
