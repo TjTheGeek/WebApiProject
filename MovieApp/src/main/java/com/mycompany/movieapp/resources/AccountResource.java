@@ -31,7 +31,7 @@ public class AccountResource {
      
     @GET
 
-    protected List<Account> getAccounts(@PathParam("customerId") int id) {//getrs all the accounts under than customer
+    public List<Account> getAccounts(@PathParam("customerId") int id) {//getrs all the accounts under than customer
         id = id - 1;
         return accountService.getAllAccounts(id);
 
@@ -39,7 +39,7 @@ public class AccountResource {
     
     @GET
     @Path("/{accountId}")//gets a specif account under that customer
-    protected Account getAccount(@PathParam("customerId") int id, @PathParam("accountId") int accountId) {
+    public Account getAccount(@PathParam("customerId") int id, @PathParam("accountId") int accountId) {
         int id1,accountId1;
         id1= id-1;
         accountId1 = accountId - 1;
@@ -49,7 +49,7 @@ public class AccountResource {
     
     @GET
     @Path("/{accountId}/accNickname")
-    protected String getAccountNickname(@PathParam("customerId") int custId, @PathParam("accountId") int accountId) {
+    public String getAccountNickname(@PathParam("customerId") int custId, @PathParam("accountId") int accountId) {
         int accountId1,custId1;
         accountId1 = accountId - 1;
         custId1 = custId - 1;
@@ -58,7 +58,7 @@ public class AccountResource {
     }
     
     @POST
-    protected String addAccount(@PathParam("customerId")int custId,Account account){
+    public String addAccount(@PathParam("customerId")int custId,Account account){
       accountService.addAccount(custId, account);
       return "Account Added";
       
@@ -68,13 +68,13 @@ public class AccountResource {
     
      @GET
      @Path("/(accountId)/movies")
-     protected MovieResource getMovies(){
+     public MovieResource getMovies(){
      return  new MovieResource();
      }
      
      @DELETE
      @Path("/{accountId}")
-    protected String removeAccount(@PathParam("customerId") int id, @PathParam("accountId") int accountId) {
+    public String removeAccount(@PathParam("customerId") int id, @PathParam("accountId") int accountId) {
        // accountId = accountId --;
         id =id-1;
         accountService.removeAccount(id, accountId-1);
@@ -83,7 +83,7 @@ public class AccountResource {
      
     @PUT
     @Path("/{accountId}")
-    protected Account updateAccount(@PathParam("customerId") int id, @PathParam("accountId") int accountId, Account account) {
+    public Account updateAccount(@PathParam("customerId") int id, @PathParam("accountId") int accountId, Account account) {
        int id1;
         id1= id - 1;
         return accountService.updateAccountDetails(id, accountId, account);
