@@ -1,0 +1,404 @@
+{
+	"info": {
+		"_postman_id": "ada44ae7-a0ce-45eb-ae7a-947b8ee1bac9",
+		"name": "Demo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Marcus",
+			"item": [
+				{
+					"name": "http://localhost:49000/api/customers",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"jakesmih\",\n    \"address\":\"london\",\n    \"email\": \"jakesmith@gmail.com\"\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:49000/api/customers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "49000",
+							"path": [
+								"api",
+								"customers"
+							]
+						},
+						"description": "Gets Customer"
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:49000/api/customers",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"jakesmih\",\n    \"address\":\"london\",\n    \"email\": \"jakesmith@yahoo.com\"\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:49000/api/customers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "49000",
+							"path": [
+								"api",
+								"customers"
+							]
+						},
+						"description": "Creates a Customer"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Jegan",
+			"item": [
+				{
+					"name": "http://localhost:49000/api/customers/1/accounts/2/movies/1",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \n       \"movieName\": \"Pink Wedding\",\n        \"isWatch\": \"Recommended\",\n        \"summary\": \"sachin's Documentary\"\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:49000/api/customers/1/accounts/2/movies",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "49000",
+							"path": [
+								"api",
+								"customers",
+								"1",
+								"accounts",
+								"2",
+								"movies"
+							]
+						},
+						"description": "Gets list of Movies"
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:49000/api/customers/1/accounts/2/movies/",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \n       \"movieName\": \"Pink Wedding\",\n        \"isWatch\": \"Recommended\",\n        \"summary\": \"sam's Documentary\"\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:49000/api/customers/1/accounts/2/movies/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "49000",
+							"path": [
+								"api",
+								"customers",
+								"1",
+								"accounts",
+								"2",
+								"movies",
+								""
+							]
+						},
+						"description": "Adding a Movie"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Tj",
+			"item": [
+				{
+					"name": "http://localhost:49000/api/customers/2/accounts/1/movies",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"jakesmih\",\n    \"address\":\"london\",\n    \"email\": \"jakesmith@gmail.com\"\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:49000/api/customers/2/accounts/1/movies",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "49000",
+							"path": [
+								"api",
+								"customers",
+								"2",
+								"accounts",
+								"1",
+								"movies"
+							]
+						},
+						"description": "Getting Account 1"
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:49000/api/customers/2/accounts/2/movies",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"jakesmih\",\n    \"address\":\"london\",\n    \"email\": \"jakesmith@gmail.com\"\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:49000/api/customers/2/accounts/2/movies",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "49000",
+							"path": [
+								"api",
+								"customers",
+								"2",
+								"accounts",
+								"2",
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:49000/api/customers/2/accounts/2/movies/1/2",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"jakesmih\",\n    \"address\":\"london\",\n    \"email\": \"jakesmith@gmail.com\"\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:49000/api/customers/2/accounts/1/movies/1/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "49000",
+							"path": [
+								"api",
+								"customers",
+								"2",
+								"accounts",
+								"1",
+								"movies",
+								"1",
+								"2"
+							]
+						},
+						"description": "Transfer Movie from account 2 to 1"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Ting",
+			"item": [
+				{
+					"name": "http://localhost:49000/api/customers/1/accounts/2/movies/1 Copy",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \n       \"movieName\": \"Pink Wedding\",\n        \"isWatch\": \"Recommended\",\n        \"summary\": \"sachin's Documentary\"\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:49000/api/customers/1/accounts/2/movies",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "49000",
+							"path": [
+								"api",
+								"customers",
+								"1",
+								"accounts",
+								"2",
+								"movies"
+							]
+						},
+						"description": "Gets list of Movies"
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:49000/api/customers/1/accounts/2/movies/1",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \n       \"movieName\": \"Pink Wedding\",\n        \"isWatch\": \"Recommended\",\n        \"summary\": \"sachin's Documentary\"\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:49000/api/customers/1/accounts/2/movies/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "49000",
+							"path": [
+								"api",
+								"customers",
+								"1",
+								"accounts",
+								"2",
+								"movies",
+								"2"
+							]
+						},
+						"description": "Deletes The Movie from account"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
