@@ -45,7 +45,7 @@ public class MovieResource {
     public String addMovie(@PathParam("customerId") int customerId,
             @PathParam("accountId") int accountId,Movie movie){
         
-        accountId = accountId-1; customerId = customerId-1;
+        accountId = accountId--; customerId = customerId--;
         
         MovieService.addMovie(movie, accountId,customerId);
         return  "The Movie was Added";
@@ -53,8 +53,8 @@ public class MovieResource {
     @DELETE
     @Path("/{MovieID}")
     public String removeMovie(@PathParam("customerId") int customerId, @PathParam("accountId") int accountId, @PathParam("MovieID") int movieid) {
-          accountId = accountId-1; 
-          customerId = customerId-1;
+          accountId = accountId--; 
+          customerId = customerId--;
           movieid=movieid-1;
         Movie movie = MovieService.getMovie(customerId, accountId, movieid);
         Movie deletedMovie = movie;
