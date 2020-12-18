@@ -27,12 +27,7 @@ public class AccountService {
     
     //Adding new accounts
     public Account addAccount(int customerId, Account account) {
-<<<<<<< Updated upstream
         int accountId = db.getCustomerAccounts(customerId).size() + 1;
-=======
-        int accountId = db.getCustomerAccounts
-        (customerId - 1).size() + 1;
->>>>>>> Stashed changes
         account.setAccId(accountId);
         db.getCustomerAccounts(customerId-1).add(account);
         return db.getCustomerAccounts(customerId-1).get(accountId - 1 );
@@ -41,8 +36,7 @@ public class AccountService {
     //Removing accounts
     public void removeAccount(int customerId, int id) {
         db.getCustomerAccounts(customerId).remove(id);
-        for(int i = 0; i<db.getCustomerAccounts
-        (customerId).size(); i++){
+        for(int i = 0; i<db.getCustomerAccounts(customerId).size(); i++){
             db.getCustomerAccounts(customerId).get(i).setAccId(i+1);
         }
     }   

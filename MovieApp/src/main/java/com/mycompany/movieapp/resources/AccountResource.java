@@ -26,34 +26,36 @@ import javax.ws.rs.core.MediaType;
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class AccountResource {
+    
     private AccountService accountService = new AccountService();
+     
     @GET
-    public List<Account>getAccounts(@PathParam("customerId")int id){//getrs all the accounts under than customer
+
+    public List<Account> getAccounts(@PathParam("customerId") int id) {//getrs all the accounts under than customer
         id = id - 1;
         return accountService.getAllAccounts(id);
+
     }
+    
     @GET
     @Path("/{accountId}")//gets a specif account under that customer
-    public Account getAccount(@PathParam("customerId") 
-            int id, @PathParam("accountId") int accountId) {
+    public Account getAccount(@PathParam("customerId") int id, @PathParam("accountId") int accountId) {
         int id1,accountId1;
         id1= id-1;
         accountId1 = accountId - 1;
         Account custAcc = accountService.getAccount(id1, accountId1);
         return custAcc;
     }
+    
     @GET
     @Path("/{accountId}/accNickname")
-    public String getAccountNickname(@PathParam("customerId") 
-            int custId, @PathParam("accountId") int accountId) {
+    public String getAccountNickname(@PathParam("customerId") int custId, @PathParam("accountId") int accountId) {
         int accountId1,custId1;
         accountId1 = accountId - 1;
         custId1 = custId - 1;
-        String nickName=accountService.getAccount
-        (custId1, accountId1).getAccNickname();
+        String nickName=accountService.getAccount(custId1, accountId1).getAccNickname();
         return "The nickname for acc "+accountId1+" is "+nickName;
     }
-<<<<<<< Updated upstream
     
     @POST
     public String addAccount(@PathParam("customerId")int custId,Account account){
@@ -79,29 +81,12 @@ public class AccountResource {
         return "The user was Deleted";
      }
      
-=======
-    @GET
-    @Path("/(accountId)/movies")
-    public MovieResource getMovies(){
-    return  new MovieResource();
-    }
-    @DELETE
-    @Path("/{accountId}")
-    public String removeAccount(@PathParam("customerId") 
-            int id, @PathParam("accountId") int accountId) {
-        int accountId1 = accountId - 1;
-        int id1 = id - 1;
-        accountService.removeAccount(id1, accountId1);
-        return "The user was Deleted";
-    }
->>>>>>> Stashed changes
     @PUT
     @Path("/{accountId}")
-    public Account updateAccount(@PathParam("customerId") int id,
-            @PathParam("accountId") int accountId, Account account){
+    public Account updateAccount(@PathParam("customerId") int id, @PathParam("accountId") int accountId, Account account) {
        int id1;
-       id1= id - 1;
-       return accountService.updateAccountDetails(id, accountId, account);
+        id1= id - 1;
+        return accountService.updateAccountDetails(id, accountId, account);
     }
     
     

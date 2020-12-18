@@ -17,44 +17,60 @@ public class Account {
     private String accNickname;
     private int accPassword;
     private List<Movie> movies = new ArrayList<>();
-    public Account(){ 
+    
+    public Account(){
+    
     }
-    public Account(int accId, String accType, 
-            String accNickname, int accPassword,List<Movie> movies) {
+
+    public Account(int accId, String accType, String accNickname, int accPassword,List<Movie> movies) {
         this.accId = accId;
         this.accType = accType;
         this.accNickname = accNickname;
         this.accPassword = accPassword;
         this.movies = movies;
     }
+
     public List<Movie> getMovies() {
         return movies;
     }
+
     public void setMovies(List<Movie> movies) {
         this.movies = movies;
     }
+    
+    
     public int getAccId() {
         return accId;
     }
+
     public void setAccId(int accId) {
         this.accId = accId;
     }
+
     public String getAccType() {
         return accType;
     }
+
     public void setAccType(String accType) {
         this.accType = accType;
     }
+
     public String getAccNickname() {
         return accNickname;
     }
+
     public void setAccNickname(String accNickname) {
         this.accNickname = accNickname;
     }
+
     public int getAccPassword() {
         return accPassword;
     }
+
     public void setAccPassword(int accPassword) {
         this.accPassword = accPassword;
     }
+
+  
+    
 }

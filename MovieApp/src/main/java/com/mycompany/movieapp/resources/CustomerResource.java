@@ -28,43 +28,44 @@ import javax.ws.rs.core.MediaType;
 @Consumes(MediaType.APPLICATION_JSON)
 public class CustomerResource {
    private CustomerService customerService = new CustomerService();
+   
     @GET//gets all customers       
     public List<Customer> getCustomers() {
         return customerService.getAllCustomers();
     }
+    
     @GET//gets all customer with id
     @Path("/{customerId}")
-    public Customer getCustomer
-        (@PathParam("customerId") int id) {
+    public Customer getCustomer(@PathParam("customerId") int id) {
         Customer customer =  customerService.getCustomerById(id);
         return customer;
     }
+    
     @POST
-    public Customer addCustomer(Customer customer) {
+     public Customer addCustomer(Customer customer) {
         return customerService.addCustomer(customer);
     }
+    
     @DELETE
     @Path("/{customerId}")
-    public String removeCustomer(@PathParam("customerId") int id){
+    public String removeCustomer(@PathParam("customerId") int id) {
     
         customerService.removeCustomer(id-1);
         return "The Customer was Deleted";
     }
     @PUT
     @Path("/{customerId}")
-    public Customer updateCustomer(
-            @PathParam("customerId") int id, 
-            Customer customer) {
-        return customerService.updateCustomerDetails
-        (id, customer);
+    public Customer updateCustomer(@PathParam("customerId") int id, Customer customer) {
+        return customerService.updateCustomerDetails(id, customer);
     }
+    
     @Path("/{customerId}/accounts/")
-    public AccountResource getCustomerAccounts(){
+    public AccountResource getCustomerAccounts() {
         return new AccountResource();
     }
     
-    @Path("/{customerId}/accounts/{accountId}/movies/")
-    public MovieResource getCustomerAccountMovies(){
+      @Path("/{customerId}/accounts/{accountId}/movies/")
+    public MovieResource getCustomerAccountMovies() {
         return new MovieResource();
     }
 
